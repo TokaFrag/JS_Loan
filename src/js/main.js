@@ -1,13 +1,13 @@
 import MainSlider from './modules/slider/slider-main';
 import VideoPlayer from './modules/playVideo';
 import MiniSlider from './modules/slider/slider-mini';
+import Difference from './modules/difference';
+import Form from './modules/forms';
 
 window.addEventListener('DOMContentLoaded', () => {
     const slider = new MainSlider({ btns: '.next', container: '.page' });
-    slider.render();
 
     const player = new VideoPlayer('.showup .play', '.overlay');
-    player.init();
 
     const showUpSlider = new MiniSlider({
         container: '.showup__content-slider',
@@ -33,8 +33,13 @@ window.addEventListener('DOMContentLoaded', () => {
         activeClass: 'feed__item-active',
     });
 
+    new Difference('.officerold', '.officernew', '.officer__card-item').init();
+
+    new Form('.form').init();
 
 
+    slider.render();
+    player.init();
     showUpSlider.init();
     modulesSlider.init();
     feedSlider.init();
